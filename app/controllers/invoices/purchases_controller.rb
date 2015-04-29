@@ -12,17 +12,20 @@ class Invoices::PurchasesController < ApplicationController
   end
 
   def new
+    @invoice = Invoice.find(params[:invoice_id])
     @purchase = Purchase.new
-    respond_with(@purchase)
   end
 
   def edit
   end
 
   def create
+    
+    @invoice = Invoice.find(params[:invoice_id])
     @purchase = Purchase.new(purchase_params)
+    @purchase.invoice = @invoice
     @purchase.save
-    respond_with(@purchase)
+    redirect_to @invoice
   end
 
   def update
