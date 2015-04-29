@@ -1,5 +1,4 @@
-class PurchasesController < ApplicationController
-  before_action :set_purchase, only: [:show, :edit, :update, :destroy]
+class Invoices::PurchasesController < ApplicationController
 
   respond_to :html
 
